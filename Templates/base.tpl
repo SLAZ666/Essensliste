@@ -1,78 +1,62 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
   <head>
 	{% block head %}
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+		<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
 		<title>Essenswoche - {% block title %}{% endblock %}</title>
-
-		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-		<!-- Optional theme -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-		<link rel="stylesheet" href="css/style.css">
-
-		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-		<!--[if lt IE 9]>
-		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-		<![endif]-->
 	{% endblock %}
   </head>
   <body>
-  <div id="wrapper">
-    <nav class="navbar navbar-default">
-	  <div class="container">
-		<!-- Brand and toggle get grouped for better mobile display -->
-		<div class="navbar-header">
-		  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-			<span class="sr-only">Toggle navigation</span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-		  </button>
-		  <a class="navbar-brand" href="#">Essenswoche</a>
-		</div>
-
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		  <ul class="nav navbar-nav">
-			<li{% if aktuell %} class="active"{% endif %}><a href="?action=current"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Aktuell</a></li>
-			<li{% if liste %} class="active"{% endif %}><a href="?action=list"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> Essensliste</a></li>
-			<li><a href="#" data-toggle="modal" data-target="#newWeekModal"><span class="glyphicon glyphicon-transfer" aria-hidden="true"></span> Neue Woche</a></li>
-			</li>
-		  </ul>
-		</div><!-- /.navbar-collapse -->
-	  </div><!-- /.container-fluid -->
-	</nav>
+    <nav class="navbar navbar-expand-md nav-pills navbar-dark bg-dark">
+			<a class="navbar-brand" href="#">Essenswoche</a>
+	  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    		<span class="navbar-toggler-icon"></span>
+  		</button>
+			
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav">
+					<li class="nav-item"><a class="nav-link{% if aktuell %} active{% endif %}" href="?action=current"> <span class="fas fa-calendar-alt" aria-hidden="true"></span> Aktuell</a></li>
+					<li class="nav-item"><a class="nav-link{% if liste %} active{% endif %}" href="?action=list"> <span class="fas fa-list-ul" aria-hidden="true"></span> Essensliste</a></li>
+					<li class="nav-item"><a class="nav-link" href="#" data-toggle="modal" data-target="#newWeekModal"> <span class="fas fa-exchange-alt" aria-hidden="true"></span> Neue Woche</a></li>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</nav>
 
 	<!-- Modal -->
-	<div class="modal fade" id="newWeekModal" tabindex="-1" role="dialog" aria-labelledby="newWeekModalLabel">
+	<div class="modal fade" id="newWeekModal" tabindex="-1" role="dialog" aria-labelledby="newWeekModalLabel" aria-hidden="true">
 	  <div class="modal-dialog" role="document">
-		<div class="modal-content">
-		  <div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			<h4 class="modal-title" id="myModalLabel">Wirklich neue Woche beginnen?</h4>
-		  </div>
-		  <div class="modal-footer">
-			<a type="button" class="btn btn-success" href="?action=newweek"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Ja</a>
-			<button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Nein</button>
-		  </div>
-		</div>
+			<div class="modal-content">
+		  	<div class="modal-header">
+					<h4 class="modal-title" id="myModalLabel">Wirklich neue Woche beginnen?</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		  	</div>
+		  	<div class="modal-footer">
+					<a type="button" class="btn btn-success" href="?action=newweek"><span class="fas fa-check" aria-hidden="true"></span> Ja</a>
+					<button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fas fa-times" aria-hidden="true"></span> Nein</button>
+		  	</div>
+			</div>
 	  </div>
 	</div>
 	
-	<div id="page-wrapper" cladd="container-fluid">
+	<main role="main" class="container">
 	{% block content %}{% endblock %}
-	</div>
-  </div>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	</main><!-- /.container -->
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script
+			  src="https://code.jquery.com/jquery-3.3.1.min.js"
+			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			  crossorigin="anonymous"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 	
 	{% block scripts %}{% endblock %}
   </body>
