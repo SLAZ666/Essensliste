@@ -24,40 +24,24 @@
 				<ul class="navbar-nav">
 					<li class="nav-item"><a class="nav-link{% if aktuell %} active{% endif %}" href="?action=current"> <span class="fas fa-calendar-alt" aria-hidden="true"></span> Aktuell</a></li>
 					<li class="nav-item"><a class="nav-link{% if liste %} active{% endif %}" href="?action=list"> <span class="fas fa-list-ul" aria-hidden="true"></span> Essensliste</a></li>
-					<li class="nav-item"><a class="nav-link" href="#" data-toggle="modal" data-target="#newWeekModal"> <span class="fas fa-exchange-alt" aria-hidden="true"></span> Neue Woche</a></li>
+					<li class="nav-item"><a class="nav-link{% if newweek %} active{% endif %}" href="?action=newweek"> <span class="fas fa-exchange-alt" aria-hidden="true"></span> Neue Woche</a></li>
 				</ul>
 			</div><!-- /.navbar-collapse -->
 		</nav>
 
-	<!-- Modal -->
-	<div class="modal fade" id="newWeekModal" tabindex="-1" role="dialog" aria-labelledby="newWeekModalLabel" aria-hidden="true">
-	  <div class="modal-dialog" role="document">
-			<div class="modal-content">
-		  	<div class="modal-header">
-					<h4 class="modal-title" id="myModalLabel">Wirklich neue Woche beginnen?</h4>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		  	</div>
-		  	<div class="modal-footer">
-					<a type="button" class="btn btn-success" href="?action=newweek"><span class="fas fa-check" aria-hidden="true"></span> Ja</a>
-					<button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fas fa-times" aria-hidden="true"></span> Nein</button>
-		  	</div>
-			</div>
-	  </div>
-	</div>
-	
-	<main role="main" class="container">
-	{% block content %}{% endblock %}
-	</main><!-- /.container -->
+	  <main role="main" class="container">
+		{% block content %}{% endblock %}
+		</main><!-- /.container -->
 
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script
-			  src="https://code.jquery.com/jquery-3.3.1.min.js"
-			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-			  crossorigin="anonymous"></script>
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script
+		  src="https://code.jquery.com/jquery-3.3.1.min.js"
+		  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+		  crossorigin="anonymous"></script>
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 	
-	{% block scripts %}{% endblock %}
+		{% block scripts %}{% endblock %}
   </body>
 </html>
